@@ -1,0 +1,1 @@
+export default ()=> <div className='card'><h2 className='text-2xl font-bold'>Pagamento cancelado</h2><p>Você pode tentar novamente quando quiser.</p></div>

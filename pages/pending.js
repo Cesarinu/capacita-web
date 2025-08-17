@@ -1,0 +1,1 @@
+export default ()=> <div className='card'><h2 className='text-2xl font-bold'>Pagamento pendente</h2><p>Aguardando confirmação do provedor.</p></div>

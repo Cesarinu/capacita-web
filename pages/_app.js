@@ -11,23 +11,25 @@ export default function MyApp({ Component, pageProps }){
   useEffect(()=>{
     const token = Cookies.get('token') || null;
     const user = Cookies.get('user') ? JSON.parse(Cookies.get('user')) : null;
-    setAuth({token,user});
+    setAuth({ token, user });
   },[]);
-  function logout(){ Cookies.remove('token');Cookies.remove('user'); setAuth({token:null,user:null}); router.push('/login'); }
+  function logout(){ Cookies.remove('token'); Cookies.remove('user'); setAuth({token:null,user:null}); router.push('/login'); }
   return (
     <>
-      <header className="container">
-        <div className="header">
-          <Link href="/"><h1 style={{margin:0}}>Capacita</h1></Link>
+      <header className="container py-4">
+        <div className="flex items-center justify-between">
+          <Link href="/"><h1 className="text-2xl font-bold">Capacita</h1></Link>
           <nav className="nav">
             <Link href="/courses">Cursos</Link>
             <Link href="/mentor">Mentor IA</Link>
             <Link href="/subscribe">Assinar</Link>
-            {auth.token ? <a onClick={logout} style={{cursor:'pointer'}}>Sair</a> : <Link href="/login">Entrar</Link>}
+            {auth.token ? <a onClick={logout} className="cursor-pointer">Sair</a> : <Link href="/login">Entrar</Link>}
           </nav>
         </div>
       </header>
-      <main className="container"><Component {...pageProps} auth={auth} setAuth={setAuth} /></main>
+      <main className="container pb-10">
+        <Component {...pageProps} auth={auth} setAuth={setAuth} />
+      </main>
       <link rel="manifest" href="/manifest.json" />
     </>
   )

@@ -1,0 +1,1 @@
+export default ()=> <div className='card'><h2 className='text-2xl font-bold'>Pagamento aprovado 🎉</h2><p>Bem-vindo ao Capacita Premium!</p></div>
